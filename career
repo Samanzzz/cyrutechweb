@@ -164,10 +164,7 @@
 
 
             <div class="container" style="background-color: white; border-radius: 25px;">
-              <!-- Calendly inline widget begin -->
-              <div class="calendly-inline-widget" data-url="https://calendly.com/cyrutech/30min?hide_gdpr_banner=1" style="min-width:320px;height:700px;"></div>
-              <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-              <!-- Calendly inline widget end -->
+              <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdg6RNeL4GX-r5A2RYuXDuswaLAl35jUn3MKElXJZBOCmvy2g/viewform?embedded=true" width="640" height="1786" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
 
   
              </div>
