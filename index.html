@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>
-      CyruTech
+      CyruTech Capital
     </title>
 
     <!-- Primary Meta Tags -->
@@ -61,6 +61,8 @@
     <link rel="stylesheet" href="assets/css/lineicons.css" />
     <link rel="stylesheet" href="assets/css/ud-styles.css" />
   </head>
+
+  
   <body>
     <!-- ====== Header Start ====== -->
     <header class="ud-header">
@@ -69,7 +71,23 @@
           <div class="col-lg-12">
             <nav class="navbar navbar-expand-lg">
               <a class="navbar-brand" href="index.html">
-                <img src="assets/images/logo/CyruTech-logo.png" alt="shape" />
+                <!-- <img src="assets/images/logo/CyruTech-logo.png" alt="shape" /> -->
+                <img src="assets/images/logo/CyruTech-logo.png" alt="CyruTech Logo" style="animation: colorShift 5s infinite linear;">
+
+                <style>
+                @keyframes colorShift {
+                  0% {
+                    filter: hue-rotate(0deg);
+                  }
+                  50% {
+                    filter: hue-rotate(180deg);
+                  }
+                  100% {
+                    filter: hue-rotate(360deg);
+                  }
+                }
+                </style>
+
               </a>
               <button class="navbar-toggler">
                 <span class="toggler-icon"> </span>
@@ -82,16 +100,15 @@
                   <li class="nav-item">
                     <a class="ud-menu-scroll" href="#home">Home</a>
                   </li>
-
-                  <li class="nav-item">
-                    <a class="ud-menu-scroll" href="#about">About</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="ud-menu-scroll" href="#pricing">Pricing</a>
-                  </li>
                   <li class="nav-item">
                     <a class="ud-menu-scroll" href="#team">Team</a>
                   </li>
+                  <li class="nav-item">
+                    <a class="ud-menu-scroll" href="#about">About</a>
+                  </li>
+                  <!-- <li class="nav-item">
+                    <a class="ud-menu-scroll" href="#pricing">Pricing</a>
+                  </li> -->
                   <li class="nav-item">
                     <a class="ud-menu-scroll" href="#contact">Contact</a>
                   </li>
@@ -151,15 +168,35 @@
     </header>
     <!-- ====== Header End ====== -->
     
+
     <!-- ====== Hero Start ====== -->
-    <section class="ud-hero" id="home">
+    <section class="ud-hero" id="home" style="background: linear-gradient(270deg, #02122b, #012410); background-size: 400% 400%; animation: GradientShift 15s ease infinite;">
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
             <div class="ud-hero-content wow fadeInUp" data-wow-delay=".2s">
               <h1 class="ud-hero-title">
-                We Are Here To <span style="color: #1DB954;">Create</span> Your Company's <span style="color: #1DB954;">Tech Solutions</span> and Help You Promote <br>A Stress Free <span style="color: #1DB954;">User Experience for Your Customers</span>
+                <span class="cyruTech" style="background: -webkit-linear-gradient(45deg, #1DB954, #0d6efd);
+                  -webkit-background-clip: text;
+                  -webkit-text-fill-color: transparent;
+                  animation: colorRotate 5s ease-in-out infinite;">
+                  CyruTech
+                </span> Capital<br>
+                Pioneering <span style="color: #1DB954;">Venture Capital </span> for Groundbreaking Tech Innovations
               </h1>
+              
+              <style>
+              @keyframes colorRotate {
+                0% { filter: hue-rotate(0deg); }
+                50% { filter: hue-rotate(180deg); }
+                100% { filter: hue-rotate(360deg); }
+              }
+              @keyframes GradientShift {
+                0% { background-position: 0% 50%; }
+                50% { background-position: 100% 50%; }
+                100% { background-position: 0% 50%; }
+              }
+              </style>
               <p class="ud-hero-desc">
                 <span style="color: #1DB954;">C</span>yru<span style="color: #1DB954;">T</span>ech builds your tech solutions, and runs your marketing with no hassle on your end.
               </p>
@@ -171,7 +208,7 @@
                     target="_blank"
                     class="ud-main-btn ud-white-btn"
                   >
-                    Book Your Appointment Now
+                    Book for Demos
                   </a>
                 </li>
                 <li>
@@ -232,7 +269,7 @@
                 <i class="lni lni-gift"></i>
               </div>
               <div class="ud-feature-content">
-                <h3 class="ud-feature-title">Create a professional website and a software solution for your business</h3>
+                <h3 class="ud-feature-title">Create a professional Relationship for software solutions for your business</h3>
                 <p class="ud-feature-desc">
                   Scale up your business by upgrading your online presence through professional and topnotch work.
                 </p>
@@ -295,26 +332,230 @@
     </section>
     <!-- ====== Features End ====== -->
 
+
+
+
+    <!-- ====== Team Start ====== -->
+    <section id="team" class="ud-team">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="ud-section-title mx-auto text-center">
+              <span style="color :black">Our Team</span>
+              <h2 style="color :black">Meet The Team</h2>
+              <p style="color :black">
+                The team at CyruTech Capital, located in La Jolla, San Diego, is a dedicated group of venture capital experts. They are passionate about discovering and supporting tech startups with the potential to grow and innovate. Each team member is committed to the success of our investments and the entrepreneurs we work with.
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- style="display: flex; justify-content: center; -->
+        <div class="row">
+          <!-- <div class="col-xl-3 col-lg-3 col-sm-6"> -->
+            <!-- <div class="ud-single-team wow fadeInUp" data-wow-delay=".1s">
+              <div class="ud-team-image-wrapper">
+
+                <img
+                  src="assets/images/team/dotted-shape.svg"
+                  alt="shape"
+                  class="shape shape-1"
+                />
+                <img
+                  src="assets/images/team/team-01.png"
+                  alt="shape"
+                  class="shape shape-2"
+                />
+              </div>
+              <div class="ud-team-info">
+                <h5>Saman Khadivar</h5>
+                <h6>Managing Partner</h6>
+              </div>
+              
+              <p>
+                Saman Khadivar, our Managing Partner at CyruTech Capital, is a prodigious entrepreneur with a remarkable foundation in the startup ecosystem. At 22, his portfolio already includes the successful founding of three startups, demonstrating a natural acumen for innovation and leadership in the tech industry. His professional approach is grounded in a strategic vision that has been pivotal in identifying and nurturing high-potential ventures. Saman's leadership is instrumental in steering our firm and our partners towards sustained growth and market excellence.
+              </p>
+
+        
+            </div> -->
+
+
+            <div style="display: flex; align-items: center; justify-content: start; max-width: 2048px; gap: 20px;">
+              <div style="flex-shrink: 0;">
+                <img src="assets/images/team/dotted-shape.svg" alt="shape" style="display: block; width: 80px; height: 80px;"/> <!-- Adjust width and height as necessary -->
+                <img src="assets/images/team/team-01.png" alt="Saman Khadivar" style="display: block; margin-top: -60px; width: 80%; height: auto;"/> <!-- Adjust width and height as necessary -->
+              </div>
+              
+              <div style="flex-grow: 1;">
+                <div style="margin-bottom: 10px;"> <!-- Adjust margin-bottom as necessary for spacing -->
+                  <h5 style="margin: 0;">Saman Khadivar</h5>
+                  <h6 style="margin: 0;">Managing Partner</h6>
+                </div>
+                <p style="margin: 0;">
+                  Saman Khadivar, our Managing Partner at CyruTech Capital, is a prodigious entrepreneur with a remarkable foundation in the startup ecosystem. At 22, his portfolio already includes the successful founding of three startups, demonstrating a natural acumen for innovation and leadership in the tech industry. His professional approach is grounded in a strategic vision that has been pivotal in identifying and nurturing high-potential ventures. Saman's leadership is instrumental in steering our firm and our partners towards sustained growth and market excellence.
+                </p>
+                <br>
+              </div>
+            </div>
+            
+            <style>
+              @media (max-width: 600px) { /* This size can be adjusted based on your breakpoint for mobile devices */
+                div[style*="max-width: 2048px"] {
+                  flex-direction: column;
+                  align-items: center;
+                }
+                div[style*="flex-shrink: 0"] {
+                  order: -1; /* Place images container at the top on mobile */
+                  width: 100%; /* Ensure the container takes full width for centering */
+                  display: flex;
+                  flex-direction: column;
+                  align-items: center;
+                }
+                img[alt="Saman Khadivar"] {
+                  width: 80%; /* Adjust width as needed to control image size on mobile */
+                  margin-top: 20px; /* Reset or adjust margin to better position the image */
+                }
+                div[style*="flex-grow: 1"] {
+                  text-align: center; /* Center text under the image */
+                }
+              }
+            </style>
+            
+          
+          
+            
+            
+            
+    
+          <!-- </div> -->
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="ud-section-title mx-auto text-center">
+                <span style="color :black">Our Partners Team</span>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xl-3 col-lg-3 col-sm-6">
+              <div class="ud-single-team wow fadeInUp" data-wow-delay=".2s">
+                <div class="ud-team-image-wrapper">
+  
+                  <img
+                    src="assets/images/team/dotted-shape.svg"
+                    alt="shape"
+                    class="shape shape-1"
+                  />
+                  <img
+                    src="assets/images/team/laurenpic.png"
+                    alt="shape"
+                    class="shape shape-2"
+                  />
+                </div>
+                <div class="ud-team-info">
+                  <h5>Lauren Irmak</h5>
+                  <h6>General Partner</h6>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-lg-3 col-sm-6">
+            <div class="ud-single-team wow fadeInUp" data-wow-delay=".1s">
+              <div class="ud-team-image-wrapper">
+
+                <img
+                  src="assets/images/team/dotted-shape.svg"
+                  alt="shape"
+                  class="shape shape-1"
+                />
+                <img
+                  src="assets/images/team/anthonypic.png"
+                  alt="shape"
+                  class="shape shape-2"
+                />
+              </div>
+              <div class="ud-team-info">
+                <h5>Anthony Chen</h5>
+                <h6>Co-founder - Software Engineer</h6>
+              </div>
+            
+
+        
+            </div>
+          </div>
+          <div class="col-xl-3 col-lg-3 col-sm-6">
+            <div class="ud-single-team wow fadeInUp" data-wow-delay=".15s">
+              <div class="ud-team-image-wrapper">
+
+                <img
+                  src="assets/images/team/dotted-shape.svg"
+                  alt="shape"
+                  class="shape shape-1"
+                />
+                <img
+                  src="assets/images/team/bradleypic.png"
+                  alt="shape"
+                  class="shape shape-2"
+                />
+              </div>
+              <div class="ud-team-info">
+                <h5>Bradley Chester</h5>
+                <h6>Co-founder - Software Engineer</h6>
+              </div>
+
+            </div>
+          </div>
+          <div class="col-xl-3 col-lg-3 col-sm-6">
+            <div class="ud-single-team wow fadeInUp" data-wow-delay=".25s">
+              <div class="ud-team-image-wrapper">
+                <div class="ud-team-image">
+                  <img src="assets/images/team/team-04.png" alt="team" />
+                </div>
+
+                <img
+                  src="assets/images/team/dotted-shape.svg"
+                  alt="shape"
+                  class="shape shape-1"
+                />
+                <img
+                  src="assets/images/team/shape-2.svg"
+                  alt="shape"
+                  class="shape shape-2"
+                />
+              </div>
+              <div class="ud-team-info">
+                <h5>Vishnavi</h5>
+                <h6>Program Manager</h6>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        </div>
+      </div>
+    </section>
+    <!-- ====== Team End ====== -->
+
+
     <!-- ====== About Start ====== -->
     <section id="about" class="ud-about">
       <div class="container">
         <div class="ud-about-wrapper wow fadeInUp" data-wow-delay=".2s">
           <div class="ud-about-content-wrapper">
-            <div class="ud-about-content">
-              <span class="tag" >About Us</span>
-              <h2>Put CyruTech to work. Invest your time where it's needed.</h2>
-              <p>
-                We have 24/7 responsive developers through our live chat. No hassle or waiting on your end.
-              </p>
+            <span class="tag" >Our Goal</span>
+            <h2>Get involved with CyruTech</h2>
+            <br>
+            <p>
+              At CyruTech Capital, our overarching goal is to catalyze the growth and success of innovative technology startups. We engage with companies at various stages—from conceptual sparks to those with established products—aiming to propel them to new heights of development and market penetration. Our objective over a targeted three-month acceleration period is to ensure that each company not only refines its product offering but also significantly expands its user base and investment attractiveness.
+            </p>
+            <br>
+            <p>
+              We provide an immersive environment where urgency meets opportunity—creating a breeding ground for breakthroughs and intense progress. Within this dynamic ecosystem, startups gain access to seasoned mentors, strategic partners, and potential investors, all unified in their commitment to the startup's success. This network, combined with our tailored guidance, helps founders unlock extraordinary levels of performance, often surpassing their own expectations of what they could achieve.
+            </p>
+            <br>
+            <p>
+              By the end of their time with CyruTech Capital, our startups are positioned not just for immediate next steps, but for sustainable growth and leadership in the tech industry. We don’t just invest money; we invest in potential, turning visionary tech entrepreneurs into tomorrow’s industry leaders.
+            </p>
+            <br>
+            <a href="appointment.html" class="ud-main-btn">Book Your Appointment Now</a>
 
-              <p>
-                Our developers work all hours of the day. Our business hours are all day long and we are proud to say we are the most reachable company in the  market
-              </p>
-              <a href="appointment.html" class="ud-main-btn">Book Your Appointment Now</a>
-            </div>
-          </div>
-          <div class="ud-about-image">
-            <img src="assets/images/about/about-image.svg" alt="about-image" />
           </div>
         </div>
       </div>
@@ -322,7 +563,7 @@
     <!-- ====== About End ====== -->
 
     <!-- ====== Pricing Start ====== -->
-    <section id="pricing" class="ud-pricing">
+    <!-- <section id="pricing" class="ud-pricing">
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
@@ -393,11 +634,11 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
     <!-- ====== Pricing End ====== -->
 
     <!-- ====== Testimonials Start ====== -->
-    <section id="testimonials" class="ud-testimonials">
+    <!-- <section id="testimonials" class="ud-testimonials">
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
@@ -506,129 +747,9 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
     <!-- ====== Testimonials End ====== -->
 
-    <!-- ====== Team Start ====== -->
-    <section id="team" class="ud-team">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="ud-section-title mx-auto text-center">
-              <span style="color :black">Our Team</span>
-              <h2 style="color :black">Meet The Team</h2>
-              <p style="color :black">
-                CyruTechs are the talented team of developers at CyruTech, a software and website development company based in La Jolla, San Diego. They are a group of enthusiastic and passionate individuals who are always eager to take on new challenges and work on interesting projects.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-xl-3 col-lg-3 col-sm-6">
-            <div class="ud-single-team wow fadeInUp" data-wow-delay=".1s">
-              <div class="ud-team-image-wrapper">
-                <div class="ud-team-image">
-                  <img src="assets/images/team/team-02.png" alt="team" />
-                </div>
-
-                <img
-                  src="assets/images/team/dotted-shape.svg"
-                  alt="shape"
-                  class="shape shape-1"
-                />
-                <img
-                  src="assets/images/team/shape-2.svg"
-                  alt="shape"
-                  class="shape shape-2"
-                />
-              </div>
-              <div class="ud-team-info">
-                <h5>Saman Khadivar</h5>
-                <h6>Founder</h6>
-              </div>
-            
-
-        
-            </div>
-          </div>
-          <div class="col-xl-3 col-lg-3 col-sm-6">
-            <div class="ud-single-team wow fadeInUp" data-wow-delay=".15s">
-              <div class="ud-team-image-wrapper">
-                <div class="ud-team-image">
-                  <img src="assets/images/team/team-02.png" alt="team" />
-                </div>
-
-                <img
-                  src="assets/images/team/dotted-shape.svg"
-                  alt="shape"
-                  class="shape shape-1"
-                />
-                <img
-                  src="assets/images/team/shape-2.svg"
-                  alt="shape"
-                  class="shape shape-2"
-                />
-              </div>
-              <div class="ud-team-info">
-                <h5>Dave</h5>
-                <h6>HR Coordinator</h6>
-              </div>
-
-            </div>
-          </div>
-          <div class="col-xl-3 col-lg-3 col-sm-6">
-            <div class="ud-single-team wow fadeInUp" data-wow-delay=".2s">
-              <div class="ud-team-image-wrapper">
-                <div class="ud-team-image">
-                  <img src="assets/images/team/team-03.png" alt="team" />
-                </div>
-
-                <img
-                  src="assets/images/team/dotted-shape.svg"
-                  alt="shape"
-                  class="shape shape-1"
-                />
-                <img
-                  src="assets/images/team/shape-2.svg"
-                  alt="shape"
-                  class="shape shape-2"
-                />
-              </div>
-              <div class="ud-team-info">
-                <h5>Julia</h5>
-                <h6>Operations Manager</h6>
-              </div>
-            </div>
-          </div>
-          <div class="col-xl-3 col-lg-3 col-sm-6">
-            <div class="ud-single-team wow fadeInUp" data-wow-delay=".25s">
-              <div class="ud-team-image-wrapper">
-                <div class="ud-team-image">
-                  <img src="assets/images/team/team-04.png" alt="team" />
-                </div>
-
-                <img
-                  src="assets/images/team/dotted-shape.svg"
-                  alt="shape"
-                  class="shape shape-1"
-                />
-                <img
-                  src="assets/images/team/shape-2.svg"
-                  alt="shape"
-                  class="shape shape-2"
-                />
-              </div>
-              <div class="ud-team-info">
-                <h5>Vishnavi</h5>
-                <h6>Program Manager</h6>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- ====== Team End ====== -->
 
     <!-- ====== Contact Start ====== -->
     <section id="contact" class="ud-contact">

@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>
-      CyruTech
+      CyruTech Capital
     </title>
 
     <!-- Primary Meta Tags -->
@@ -69,7 +69,23 @@
           <div class="col-lg-12">
             <nav class="navbar navbar-expand-lg">
               <a class="navbar-brand" href="index.html">
-                <img src="assets/images/logo/CyruTech-logo.png" alt="shape" />
+                <!-- <img src="assets/images/logo/CyruTech-logo.png" alt="shape" /> -->
+                <img src="assets/images/logo/CyruTech-logo.png" alt="CyruTech Logo" style="animation: colorShift 5s infinite linear;">
+
+                <style>
+                @keyframes colorShift {
+                  0% {
+                    filter: hue-rotate(0deg);
+                  }
+                  50% {
+                    filter: hue-rotate(180deg);
+                  }
+                  100% {
+                    filter: hue-rotate(360deg);
+                  }
+                }
+                </style>
+
               </a>
               <button class="navbar-toggler">
                 <span class="toggler-icon"> </span>
@@ -80,20 +96,19 @@
               <div class="navbar-collapse">
                 <ul id="nav" class="navbar-nav mx-auto">
                   <li class="nav-item">
-                    <a class="ud-menu-scroll" href="index.html/">Home</a>
-                  </li>
-
-                  <li class="nav-item">
-                    <a class="ud-menu-scroll" href="index.html/#about">About</a>
+                    <a class="ud-menu-scroll" href="#home">Home</a>
                   </li>
                   <li class="nav-item">
-                    <a class="ud-menu-scroll" href="index.html/#pricing">Pricing</a>
+                    <a class="ud-menu-scroll" href="#team">Team</a>
                   </li>
                   <li class="nav-item">
-                    <a class="ud-menu-scroll" href="index.html/#team">Team</a>
+                    <a class="ud-menu-scroll" href="#about">About</a>
                   </li>
+                  <!-- <li class="nav-item">
+                    <a class="ud-menu-scroll" href="#pricing">Pricing</a>
+                  </li> -->
                   <li class="nav-item">
-                    <a class="ud-menu-scroll" href="index.html/#contact">Contact</a>
+                    <a class="ud-menu-scroll" href="#contact">Contact</a>
                   </li>
                   <li class="nav-item">
                     <a class="navbar-brand" href="careers.html">Careers</a>
@@ -140,7 +155,7 @@
               </div>
 
               <div class="navbar-btn d-none d-sm-inline-block">
-                <a class="ud-main-btn ud-white-btn" href="javascript:void(0)">
+                <a class="ud-main-btn ud-white-btn" href="appointment.html">
                   Book Your Appointment Now
                 </a>
               </div>
@@ -151,6 +166,7 @@
     </header>
     <!-- ====== Header End ====== -->
     
+
     <!-- ====== Hero Start ====== -->
     <section class="ud-hero" id="home">
       <div class="container">

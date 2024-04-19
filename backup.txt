@@ -1,0 +1,82 @@
+    <!-- ====== Hero Start ====== -->
+    <section class="ud-hero" id="home">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="ud-hero-content wow fadeInUp" data-wow-delay=".2s">
+              <!-- <h1 class="ud-hero-title">
+                We Are Here To <span style="color: #1DB954;">Create</span> Your Company's <span style="color: #1DB954;">Tech Solutions</span> and Help You Promote <br>A Stress Free <span style="color: #1DB954;">User Experience for Your Customers</span>
+              </h1> -->
+
+              <h1 class="ud-hero-title">
+                <span class="cyruTech" style="background: -webkit-linear-gradient(45deg, #1DB954, #0d6efd);
+                  -webkit-background-clip: text;
+                  -webkit-text-fill-color: transparent;
+                  animation: colorRotate 5s ease-in-out infinite;">
+                  CyruTech
+                </span> Capital<br>
+                Pioneering <span style="color: #1DB954;">Venture Capital </span> for Groundbreaking Tech Innovations
+                
+              </h1>
+              
+              <style>
+              @keyframes colorRotate {
+                0% { filter: hue-rotate(0deg); }
+                50% { filter: hue-rotate(180deg); }
+                100% { filter: hue-rotate(360deg); }
+              }
+              </style>
+              <p class="ud-hero-desc">
+                <span style="color: #1DB954;">C</span>yru<span style="color: #1DB954;">T</span>ech builds your tech solutions, and runs your marketing with no hassle on your end.
+              </p>
+              <ul class="ud-hero-buttons">
+                <li>
+                  <a
+                    href="appointment.html"
+                    rel="nofollow noopener"
+                    target="_blank"
+                    class="ud-main-btn ud-white-btn"
+                  >
+                    Book for Demos
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="about.html"
+                    rel="nofollow noopener"
+                    target="_blank"
+                    class="ud-main-btn ud-link-btn"
+                  >
+                    Learn More <i class="lni lni-arrow-right"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div
+              class="ud-hero-brands-wrapper wow fadeInUp"
+              data-wow-delay=".3s"
+            >
+              <img src="assets/images/hero/brand.svg" alt="brand" />
+            </div>
+            <div class="ud-hero-image wow fadeInUp" data-wow-delay=".25s">
+              <img src="assets/images/hero/dashboard.png" alt="hero-image" />
+              <img
+                src="assets/images/hero/dotted-shape.svg"
+                alt="shape"
+                class="shape shape-1"
+              />
+              <img
+                src="assets/images/hero/dotted-shape.svg"
+                alt="shape"
+                class="shape shape-2"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ====== Hero End ====== -->
+
+
+
+    
