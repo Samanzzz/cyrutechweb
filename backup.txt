@@ -80,3 +80,31 @@
 
 
     
+
+
+
+          <div style="display: flex; align-items: center; justify-content: start; max-width: 2048px; gap: 20px;">
+  
+            <div style="flex-shrink: 0;">
+              <img src="assets/images/team/dotted-shape.svg" alt="shape" style="display: block; width: 80px; height: 80px;"/> <!-- Adjust width and height as necessary -->
+              <img src="assets/images/team/team-01.png" alt="Saman Khadivar" style="display: block; margin-top: -60px; width: 80%; height: auto;"/> <!-- Adjust width and height as necessary -->
+            </div>
+              
+            <div style="flex-grow: 1;">
+              <div style="margin-bottom: 10px;"> <!-- Adjust margin-bottom as necessary for spacing -->
+                <h5 style="margin: 0;">Saman Khadivar</h5>
+                <h6 style="margin: 0;">Managing Partner</h6>
+              </div>
+               <p style="margin: 0;" class="hide-on-mobile">
+                Saman Khadivar, our Managing Partner at CyruTech Capital, is a prodigious entrepreneur with a remarkable foundation in the startup ecosystem. At 22, his portfolio already includes the successful founding of three startups, demonstrating a natural acumen for innovation and leadership in the tech industry. His professional approach is grounded in a strategic vision that has been pivotal in identifying and nurturing high-potential ventures. Saman's leadership is instrumental in steering our firm and our partners towards sustained growth and market excellence.                </p>
+            </div>
+
+            <style>
+              @media (max-width: 600px) { /* This size can be adjusted based on your breakpoint for mobile devices */
+                .hide-on-mobile {
+                  display: none; /* This will hide the paragraph on screens smaller than 600px wide */
+                }
+              }
+            </style>
+              
+          </div>
