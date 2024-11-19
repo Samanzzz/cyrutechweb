@@ -56,17 +56,17 @@
               class="ud-hero-brands-wrapper wow fadeInUp"
               data-wow-delay=".3s"
             >
-              <img src="assets/images/hero/brand.svg" alt="brand" />
+              <img src="../assets/images/hero/brand.svg" alt="brand" />
             </div>
             <div class="ud-hero-image wow fadeInUp" data-wow-delay=".25s">
-              <img src="assets/images/hero/dashboard.png" alt="hero-image" />
+              <img src="../assets/images/hero/dashboard.png" alt="hero-image" />
               <img
-                src="assets/images/hero/dotted-shape.svg"
+                src="../assets/images/hero/dotted-shape.svg"
                 alt="shape"
                 class="shape shape-1"
               />
               <img
-                src="assets/images/hero/dotted-shape.svg"
+                src="../assets/images/hero/dotted-shape.svg"
                 alt="shape"
                 class="shape shape-2"
               />
@@ -86,8 +86,8 @@
           <div style="display: flex; align-items: center; justify-content: start; max-width: 2048px; gap: 20px;">
   
             <div style="flex-shrink: 0;">
-              <img src="assets/images/team/dotted-shape.svg" alt="shape" style="display: block; width: 80px; height: 80px;"/> <!-- Adjust width and height as necessary -->
-              <img src="assets/images/team/team-01.png" alt="Saman Khadivar" style="display: block; margin-top: -60px; width: 80%; height: auto;"/> <!-- Adjust width and height as necessary -->
+              <img src="../assets/images/team/dotted-shape.svg" alt="shape" style="display: block; width: 80px; height: 80px;"/> <!-- Adjust width and height as necessary -->
+              <img src="../assets/images/team/team-01.png" alt="Saman Khadivar" style="display: block; margin-top: -60px; width: 80%; height: auto;"/> <!-- Adjust width and height as necessary -->
             </div>
               
             <div style="flex-grow: 1;">
@@ -135,7 +135,7 @@
               </div> -->
               <div>
                 <img
-                src="assets/images/logo/sulldog-logoo.png"
+                src="../assets/images/logo/sulldog-logoo.png"
                 />
               </div>
               <br>
@@ -154,12 +154,12 @@
               <!-- <div class="ud-feature-icon">
                 <i class="lni lni-move"></i>
                 <img
-                src="assets/images/logo/impala-logo.png"
+                src="../assets/images/logo/impala-logo.png"
                 />
               </div> -->
               <div>
                 <img
-                src="assets/images/logo/impala-logo.png"
+                src="../assets/images/logo/impala-logo.png"
                 />
               </div>
               <div class="ud-feature-content">
@@ -180,7 +180,7 @@
               </div> -->
               <div>
                 <img
-                src="assets/images/logo/feedslack.png"
+                src="../assets/images/logo/feedslack.png"
                 />
               </div>
               <br>
@@ -202,7 +202,7 @@
               </div> -->
               <div>
                 <img
-                src="assets/images/logo/advercal.png"
+                src="../assets/images/logo/advercal.png"
                 />
               </div>
               <div class="ud-feature-content">
@@ -230,9 +230,9 @@
         <div class="row">
           <div class="col-lg-12">
             <nav class="navbar navbar-expand-lg">
-              <a class="navbar-brand" href="index.html">
-                <!-- <img src="assets/images/logo/CyruTech-logo.png" alt="shape" /> -->
-                <img src="assets/images/logo/CyruTech-logo.png" alt="CyruTech Logo" style="animation: colorShift 5s infinite linear;">
+              <a class="navbar-brand" href="../index.html">
+                <!-- <img src="../assets/images/logo/CyruTech-logo.png" alt="shape" /> -->
+                <img src="../assets/images/logo/CyruTech-logo.png" alt="CyruTech Logo" style="animation: colorShift 5s infinite linear;">
 
                 <style>
                 @keyframes colorShift {
@@ -354,8 +354,8 @@
       <div class="col-xl-3 col-lg-3 col-sm-6">
         <div class="ud-single-team animated fadeInUp" data-wow-delay=".2s" style="animation-delay: 0.5s;">
           <div class="ud-team-image-wrapper">
-            <img src="assets/images/team/dotted-shape.svg" alt="shape" class="shape shape-1" />
-            <img src="assets/images/team/team-01.png" alt="Saman Khadivar" class="shape shape-2" />
+            <img src="../assets/images/team/dotted-shape.svg" alt="shape" class="shape shape-1" />
+            <img src="../assets/images/team/team-01.png" alt="Saman Khadivar" class="shape shape-2" />
           </div>
           <div class="ud-team-info">
             <h5>Saman Khadivar</h5>
@@ -366,8 +366,8 @@
       <div class="col-xl-3 col-lg-3 col-sm-6">
         <div class="ud-single-team animated fadeInUp" data-wow-delay=".3s" style="animation-delay: 0.6s;">
           <div class="ud-team-image-wrapper">
-            <img src="assets/images/team/dotted-shape.svg" alt="shape" class="shape shape-1" />
-            <img src="assets/images/team/laurenpic.png" alt="Lauren Irmak" class="shape shape-2" />
+            <img src="../assets/images/team/dotted-shape.svg" alt="shape" class="shape shape-1" />
+            <img src="../assets/images/team/laurenpic.png" alt="Lauren Irmak" class="shape shape-2" />
           </div>
           <div class="ud-team-info">
             <h5>Lauren Irmak</h5>
@@ -378,8 +378,8 @@
       <div class="col-xl-3 col-lg-3 col-sm-6">
         <div class="ud-single-team animated fadeInUp" data-wow-delay=".4s" style="animation-delay: 0.7s;">
           <div class="ud-team-image-wrapper">
-            <img src="assets/images/team/dotted-shape.svg" alt="shape" class="shape shape-1" />
-            <img src="assets/images/team/anthonypic.png" alt="Anthony Chen" class="shape shape-2" />
+            <img src="../assets/images/team/dotted-shape.svg" alt="shape" class="shape shape-1" />
+            <img src="../assets/images/team/anthonypic.png" alt="Anthony Chen" class="shape shape-2" />
           </div>
           <div class="ud-team-info">
             <h5>Anthony Chen</h5>
@@ -390,8 +390,8 @@
       <div class="col-xl-3 col-lg-3 col-sm-6">
         <div class="ud-single-team animated fadeInUp" data-wow-delay=".5s" style="animation-delay: 0.8s;">
           <div class="ud-team-image-wrapper">
-            <img src="assets/images/team/dotted-shape.svg" alt="shape" class="shape shape-1" />
-            <img src="assets/images/team/bradleypic.png" alt="Bradley Chester" class="shape shape-2" />
+            <img src="../assets/images/team/dotted-shape.svg" alt="shape" class="shape shape-1" />
+            <img src="../assets/images/team/bradleypic.png" alt="Bradley Chester" class="shape shape-2" />
           </div>
           <div class="ud-team-info">
             <h5>Bradley Chester</h5>

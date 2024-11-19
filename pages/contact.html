@@ -31,7 +31,7 @@
     />
     <meta
       property="og:image"
-      content="\assets\images\hero\dashsocial.png"
+      content="\../assets\images\hero\dashsocial.png"
     />
 
     <!-- Twitter -->
@@ -52,16 +52,18 @@
     <!--====== Favicon Icon ======-->
     <link
       rel="shortcut icon"
-      href="assets/images/logo/Cy-logo.png"
+      href="../assets/images/logo/Cy-logo.png"
       type="image/svg"
     />
 
     <!-- ===== All CSS files ===== -->
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="assets/css/animate.css" />
-    <link rel="stylesheet" href="assets/css/lineicons.css" />
-    <link rel="stylesheet" href="assets/css/ud-styles.css" />
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../assets/css/animate.css" />
+    <link rel="stylesheet" href="../assets/css/lineicons.css" />
+    <link rel="stylesheet" href="../assets/css/ud-styles.css" />
   </head>
+
+
   <body>
     <!-- ====== Header Start ====== -->
     <header class="ud-header">
@@ -69,7 +71,7 @@
         <div class="row">
           <div class="col-lg-12">
             <nav class="navbar navbar-expand-lg">
-              <a class="navbar-brand" href="index.html">
+              <a class="navbar-brand" href="../index.html">
                 <span class="fw-bold text-white startup-logo">Startup Template</span>
               </a>
               <button class="navbar-toggler">
@@ -158,7 +160,7 @@
         <div class="row">
           <div class="col-lg-12">
             <div class="ud-banner-content">
-              <h1>Login Page</h1>
+              <h1>Contact Page</h1>
             </div>
           </div>
         </div>
@@ -166,111 +168,116 @@
     </section>
     <!-- ====== Banner End ====== -->
 
-    <!-- ====== Login Start ====== -->
-    <section class="ud-login">
+    <!-- ====== Contact Start ====== -->
+    <section id="contact" class="ud-contact">
       <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="ud-login-wrapper">
-              <div class="ud-login-logo">
-                <img src="assets/images/logo/logo-2.svg" alt="logo" />
+        <div class="row align-items-center">
+          <div class="col-xl-8 col-lg-7">
+            <div class="ud-contact-content-wrapper">
+              <div class="ud-contact-title">
+                <span>CONTACT US</span>
+                <h2>
+                  Let’s talk about <br />
+                  Love to hear from you!
+                </h2>
               </div>
-              <form class="ud-login-form">
+              <div class="ud-contact-info-wrapper">
+                <div class="ud-single-info">
+                  <div class="ud-info-icon">
+                    <i class="lni lni-map-marker"></i>
+                  </div>
+                  <div class="ud-info-meta">
+                    <h5>Our Location</h5>
+                    <p>401 Broadway, 24th Floor, Orchard Cloud View, London</p>
+                  </div>
+                </div>
+                <div class="ud-single-info">
+                  <div class="ud-info-icon">
+                    <i class="lni lni-envelope"></i>
+                  </div>
+                  <div class="ud-info-meta">
+                    <h5>How Can We Help?</h5>
+                    <p>info@yourdomain.com</p>
+                    <p>contact@yourdomain.com</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-4 col-lg-5">
+            <div
+              class="ud-contact-form-wrapper wow fadeInUp"
+              data-wow-delay=".2s"
+            >
+              <h3 class="ud-contact-form-title">Send us a Message</h3>
+              <form class="ud-contact-form">
                 <div class="ud-form-group">
+                  <label for="fullName">Full Name*</label>
+                  <input
+                    type="text"
+                    name="fullName"
+                    placeholder="Adam Gelius"
+                  />
+                </div>
+                <div class="ud-form-group">
+                  <label for="email">Email*</label>
                   <input
                     type="email"
                     name="email"
-                    placeholder="Email/username"
+                    placeholder="example@yourmail.com"
                   />
                 </div>
                 <div class="ud-form-group">
+                  <label for="phone">Phone*</label>
                   <input
-                    type="password"
-                    name="password"
-                    placeholder="*********"
+                    type="text"
+                    name="phone"
+                    placeholder="+885 1254 5211 552"
                   />
                 </div>
                 <div class="ud-form-group">
-                  <button type="submit" class="ud-main-btn w-100">Login</button>
+                  <label for="message">Message*</label>
+                  <textarea
+                    name="message"
+                    rows="1"
+                    placeholder="type your message here"
+                  ></textarea>
+                </div>
+                <div class="ud-form-group mb-0">
+                  <button type="submit" class="ud-main-btn">
+                    Send Message
+                  </button>
                 </div>
               </form>
-
-              <div class="ud-socials-connect">
-                <p>Connect With</p>
-
-                <ul>
-                  <li>
-                    <a href="javascript:void(0)" class="facebook">
-                      <i class="lni lni-facebook-filled"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="javascript:void(0)" class="twitter">
-                      <i class="lni lni-twitter-filled"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="javascript:void(0)" class="google">
-                      <i class="lni lni-google"></i>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-
-              <a class="forget-pass" href="javascript:void(0)">
-                Forget Password?
-              </a>
-              <p class="signup-option">
-                Not a member yet? <a href="javascript:void(0)"> Sign Up </a>
-              </p>
             </div>
           </div>
         </div>
       </div>
     </section>
-    <!-- ====== Login End ====== -->
+    <!-- ====== Contact End ====== -->
 
     <!-- ====== Footer Start ====== -->
     <footer class="ud-footer wow fadeInUp" data-wow-delay=".15s">
-      <div class="shape shape-1">
-        <img src="assets/images/footer/shape-1.svg" alt="shape" />
-      </div>
-      <div class="shape shape-2">
-        <img src="assets/images/footer/shape-2.svg" alt="shape" />
-      </div>
-      <div class="shape shape-3">
-        <img src="assets/images/footer/shape-3.svg" alt="shape" />
-      </div>
       <div class="ud-footer-widgets">
         <div class="container">
           <div class="row">
             <div class="col-xl-3 col-lg-4 col-md-6">
               <div class="ud-widget">
-                <a href="index.html" class="ud-footer-logo">
-                  <span class="fw-bold text-white startup-logo">Startup Template</span>
+                <a href="../index.html" class="ud-footer-logo">
+                  <img src="../assets/images/logo/CyruTech-logo.png"/>
                 </a>
                 <p class="ud-widget-desc">
-                  We create digital experiences for brands and companies by
-                  using technology.
+                  CyruTech Capital:
+Pioneering Venture Capital for Groundbreaking Tech Innovations
                 </p>
                 <ul class="ud-widget-socials">
                   <li>
-                    <a href="https://twitter.com/MusharofChy">
-                      <i class="lni lni-facebook-filled"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="https://twitter.com/MusharofChy">
-                      <i class="lni lni-twitter-filled"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="https://twitter.com/MusharofChy">
+                    <a href="https://www.instagram.com/CyruTechcompany/">
                       <i class="lni lni-instagram-filled"></i>
                     </a>
                   </li>
                   <li>
-                    <a href="https://twitter.com/MusharofChy">
+                    <a href="https://www.linkedin.com/company/82131217/admin/feed/posts/">
                       <i class="lni lni-linkedin-original"></i>
                     </a>
                   </li>
@@ -283,16 +290,13 @@
                 <h5 class="ud-widget-title">About Us</h5>
                 <ul class="ud-widget-links">
                   <li>
-                    <a href="javascript:void(0)">Home</a>
+                    <a href="../index.html">Home</a>
                   </li>
                   <li>
-                    <a href="javascript:void(0)">Features</a>
+                    <a class="ud-menu-scroll" href="#pricing">Services</a>
                   </li>
                   <li>
-                    <a href="javascript:void(0)">About</a>
-                  </li>
-                  <li>
-                    <a href="javascript:void(0)">Testimonial</a>
+                    <a class="navbar-brand" href="careers.html">Careers</a>
                   </li>
                 </ul>
               </div>
@@ -302,16 +306,13 @@
                 <h5 class="ud-widget-title">Features</h5>
                 <ul class="ud-widget-links">
                   <li>
-                    <a href="javascript:void(0)">How it works</a>
+                    <a class="ud-menu-scroll" href="#pricing">How it works</a>
                   </li>
                   <li>
                     <a href="javascript:void(0)">Privacy policy</a>
                   </li>
                   <li>
                     <a href="javascript:void(0)">Terms of service</a>
-                  </li>
-                  <li>
-                    <a href="javascript:void(0)">Refund policy</a>
                   </li>
                 </ul>
               </div>
@@ -322,114 +323,66 @@
                 <ul class="ud-widget-links">
                   <li>
                     <a
-                      href="https://lineicons.com/"
                       rel="nofollow noopner"
                       target="_blank"
-                      >Lineicons
+                      >AI Solutions
                     </a>
                   </li>
                   <li>
                     <a
-                      href="https://ecommercehtml.com/"
                       rel="nofollow noopner"
                       target="_blank"
-                      >Ecommerce HTML</a
+                      >Web Solutions</a
                     >
                   </li>
                   <li>
                     <a
-                      href="https://ayroui.com/"
                       rel="nofollow noopner"
                       target="_blank"
-                      >Ayro UI</a
+                      >Software Solutions</a
                     >
                   </li>
                   <li>
                     <a
-                      href="https://graygrids.com/"
                       rel="nofollow noopner"
                       target="_blank"
-                      >Plain Admin</a
+                      >CRM Tools</a
                     >
                   </li>
                 </ul>
               </div>
             </div>
-            <div class="col-xl-3 col-lg-6 col-md-8 col-sm-10">
+            <div class="col-xl-2 col-lg-3 col-md-6 col-sm-6">
               <div class="ud-widget">
                 <h5 class="ud-widget-title">Partners</h5>
-                <ul class="ud-widget-brands">
+                <ul class="ud-widget-links">
                   <li>
                     <a
-                      href="https://ayroui.com/"
                       rel="nofollow noopner"
                       target="_blank"
+                      >E-commerce Stores</a
                     >
-                      <img
-                        src="assets/images/footer/brands/ayroui.svg"
-                        alt="ayroui"
-                      />
-                    </a>
                   </li>
                   <li>
                     <a
-                      href="https://ecommercehtml.com/"
                       rel="nofollow noopner"
                       target="_blank"
+                      >Law Firms</a
                     >
-                      <img
-                        src="assets/images/footer/brands/ecommerce-html.svg"
-                        alt="ecommerce-html"
-                      />
-                    </a>
                   </li>
                   <li>
                     <a
-                      href="https://graygrids.com/"
                       rel="nofollow noopner"
                       target="_blank"
+                      >Restaurants</a
                     >
-                      <img
-                        src="assets/images/footer/brands/graygrids.svg"
-                        alt="graygrids"
-                      />
-                    </a>
                   </li>
                   <li>
                     <a
-                      href="https://lineicons.com/"
                       rel="nofollow noopner"
                       target="_blank"
+                      >Non-profit Organizations</a
                     >
-                      <img
-                        src="assets/images/footer/brands/lineicons.svg"
-                        alt="lineicons"
-                      />
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="https://uideck.com/"
-                      rel="nofollow noopner"
-                      target="_blank"
-                    >
-                      <img
-                        src="assets/images/footer/brands/uideck.svg"
-                        alt="uideck"
-                      />
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="https://tailwindtemplates.co/"
-                      rel="nofollow noopner"
-                      target="_blank"
-                    >
-                      <img
-                        src="assets/images/footer/brands/tailwindtemplates.svg"
-                        alt="tailwindtemplates"
-                      />
-                    </a>
                   </li>
                 </ul>
               </div>
@@ -455,9 +408,7 @@
             </div>
             <div class="col-md-4">
               <p class="ud-footer-bottom-right">
-                Designed and Developed by
-                <a href="https://hau.xyz" rel="nofollow">haudev</a>
-              </p>
+                Designed and Developed by <a href="https://cyrutech.com/"><span style="color: #1DB954;">C</span><span style="color: #ffffff;">yru</span><span style="color: #1DB954;">T</span><span style="color: #ffffff;">ech</span></a> </p>
             </div>
           </div>
         </div>
@@ -472,8 +423,8 @@
     <!-- ====== Back To Top End ====== -->
 
     <!-- ====== All Javascript Files ====== -->
-    <script src="assets/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/wow.min.js"></script>
-    <script src="assets/js/main.js"></script>
+    <script src="../assets/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/wow.min.js"></script>
+    <script src="../assets/js/main.js"></script>
   </body>
 </html>
