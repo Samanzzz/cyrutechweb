@@ -21,13 +21,20 @@
   <link rel="apple-touch-icon" href="favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Inter+Tight:wght@400;500;600&amp;display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Inter+Tight:wght@200..800&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" />
   <link rel="stylesheet" href="assets/css/site.css" />
-  <script>document.documentElement.classList.add("js");</script>
+  <script>document.documentElement.classList.add("js");try{if(!sessionStorage.getItem("cy-intro")&&!matchMedia("(prefers-reduced-motion: reduce)").matches){document.documentElement.classList.add("intro");sessionStorage.setItem("cy-intro","1");}}catch(e){}</script>
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "CyruTech Capital", "url": "https://cyrutech.com/", "logo": "https://cyrutech.com/assets/images/logo/Cy-logo.png", "email": "team@cyrutech.com", "telephone": "+18582471788", "address": {"@type": "PostalAddress", "addressLocality": "La Jolla", "addressRegion": "CA", "addressCountry": "US"}, "sameAs": ["https://www.instagram.com/CyruTechcompany/", "https://www.linkedin.com/company/82131217/"]}</script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
+  <div class="intro-curtain" aria-hidden="true">
+    <div class="intro-inner">
+      <img src="assets/images/logo/Cy-logo.png" alt="" width="64" height="59" />
+      <span class="intro-name">CyruTech Capital</span>
+      <span class="intro-bar"><span></span></span>
+    </div>
+  </div>
   <header class="site-header">
     <div class="scroll-progress" aria-hidden="true"></div>
     <div class="wrap">
@@ -52,7 +59,7 @@
   <main id="main">
     <section class="hero" aria-labelledby="hero-title">
       <div class="spotlight" aria-hidden="true"></div>
-      <div class="bg-grid" aria-hidden="true"></div>
+      <canvas class="topo" data-topo aria-hidden="true"></canvas>
       <div class="bg-glow" aria-hidden="true"></div>
       <div class="grain" aria-hidden="true"></div>
       <div class="wrap">
@@ -98,6 +105,14 @@
       <div class="marquee-track"><span class="mq-item">SullDog</span><span class="mq-star">&#10022;</span><span class="mq-item mq-serif">Venture building</span><span class="mq-star">&#10022;</span><span class="mq-item">Cloud Impala</span><span class="mq-star">&#10022;</span><span class="mq-item mq-serif">Engineering</span><span class="mq-star">&#10022;</span><span class="mq-item">FeedSlack</span><span class="mq-star">&#10022;</span><span class="mq-item mq-serif">Go-to-market</span><span class="mq-star">&#10022;</span><span class="mq-item">AdverCal</span><span class="mq-star">&#10022;</span><span class="mq-item mq-serif">Data &amp; analytics</span><span class="mq-star">&#10022;</span><span class="mq-item">SullDog</span><span class="mq-star">&#10022;</span><span class="mq-item mq-serif">Venture building</span><span class="mq-star">&#10022;</span><span class="mq-item">Cloud Impala</span><span class="mq-star">&#10022;</span><span class="mq-item mq-serif">Engineering</span><span class="mq-star">&#10022;</span><span class="mq-item">FeedSlack</span><span class="mq-star">&#10022;</span><span class="mq-item mq-serif">Go-to-market</span><span class="mq-star">&#10022;</span><span class="mq-item">AdverCal</span><span class="mq-star">&#10022;</span><span class="mq-item mq-serif">Data &amp; analytics</span><span class="mq-star">&#10022;</span></div>
     </div>
 
+    <section class="manifesto" aria-label="Our approach">
+      <div class="wrap">
+        <p class="mono-label" data-reveal>( Our approach )</p>
+        <p class="manifesto-text" data-scroll-text>We don&rsquo;t just write checks. We sit beside founders &mdash; <span class="serif">shaping strategy, shipping product and opening doors</span> &mdash; from the first idea to the next round.</p>
+        <p class="manifesto-sign" data-reveal>&mdash; CyruTech Capital, La Jolla</p>
+      </div>
+    </section>
+
     <section class="section" id="portfolio" aria-labelledby="portfolio-title">
       <div class="wrap">
         <div class="section-head section-head--split">
@@ -107,36 +122,44 @@
           </div>
           <p class="lead" data-reveal style="--d:.1s">Each company in our portfolio solves a real problem for real customers — and each one strengthens the others.</p>
         </div>
-        <div class="portfolio">
-          <article class="venture" data-reveal style="--d:0.00s">
-            <div class="venture-top"><span class="venture-index">01 / 04</span><span class="tag">Web &amp; software studio</span></div>
-            <div class="venture-logo"><img src="assets/images/logo/sulldog-logoo.png" alt="SullDog logo" width="277" height="95" loading="lazy" /></div>
-            <h3>SullDog</h3>
-            <p>Elevates businesses online with bespoke web development, app development and design.</p>
-            <div class="venture-foot"><a class="link-arrow stretched" href="pages/sulldog.html">Explore SullDog <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
-          </article>
-          <article class="venture" data-reveal style="--d:0.07s">
-            <div class="venture-top"><span class="venture-index">02 / 04</span><span class="tag">Data &amp; analytics</span></div>
-            <div class="venture-logo venture-logo--tall"><img src="assets/images/logo/impala-logo.png" alt="Cloud Impala logo" width="493" height="230" loading="lazy" /></div>
-            <h3>Cloud Impala</h3>
-            <p>Data analytics built for farmers and corporations who want to run sharper, leaner operations.</p>
-            <div class="venture-foot"><a class="link-arrow stretched" href="https://cloudimpala.com" target="_blank" rel="noopener">Visit cloudimpala.com <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
-          </article>
-          <article class="venture" data-reveal style="--d:0.14s">
-            <div class="venture-top"><span class="venture-index">03 / 04</span><span class="tag">Customer feedback</span></div>
-            <div class="venture-logo"><img src="assets/images/logo/feedslack.png" alt="FeedSlack logo" width="462" height="93" loading="lazy" /></div>
-            <h3>FeedSlack</h3>
-            <p>An advanced feedback system that helps online businesses refine every customer interaction.</p>
-            <div class="venture-foot"><span class="venture-note">Inquiries welcome — <a class="link-arrow" href="pages/contact.html">get in touch</a></span></div>
-          </article>
-          <article class="venture" data-reveal style="--d:0.21s">
-            <div class="venture-top"><span class="venture-index">04 / 04</span><span class="tag">Marketing agency</span></div>
-            <div class="venture-logo"><img src="assets/images/logo/advercal.png" alt="AdverCal logo" width="478" height="111" loading="lazy" /></div>
-            <h3>AdverCal</h3>
-            <p>Customized marketing strategies — with the rare option of working directly with executives.</p>
-            <div class="venture-foot"><span class="venture-note">Inquiries welcome — <a class="link-arrow" href="pages/contact.html">get in touch</a></span></div>
-          </article>
-        </div>
+        <ol class="vindex">
+          <li class="vrow" data-reveal style="--d:0.00s">
+            <a class="vrow-link" href="pages/sulldog.html" data-cursor="Explore">
+              <span class="vrow-num">01</span>
+              <h3 class="vrow-name">SullDog</h3>
+              <span class="vrow-cat">Web &amp; software studio</span>
+              <span class="vrow-go">Explore <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+              <span class="vrow-more"><span class="vrow-more-inner"><span class="vrow-logo"><img src="assets/images/logo/sulldog-logoo.png" alt="SullDog logo" width="277" height="95" /></span><span class="vrow-desc">Elevates businesses online with bespoke web development, app development and design.</span></span></span>
+            </a>
+          </li>
+          <li class="vrow" data-reveal style="--d:0.06s">
+            <a class="vrow-link" href="https://cloudimpala.com" target="_blank" rel="noopener" data-cursor="Visit">
+              <span class="vrow-num">02</span>
+              <h3 class="vrow-name">Cloud Impala</h3>
+              <span class="vrow-cat">Data &amp; analytics</span>
+              <span class="vrow-go">Visit <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+              <span class="vrow-more"><span class="vrow-more-inner"><span class="vrow-logo vrow-logo--tall"><img src="assets/images/logo/impala-logo.png" alt="Cloud Impala logo" width="493" height="230" /></span><span class="vrow-desc">Data analytics built for farmers and corporations who want to run sharper, leaner operations.</span></span></span>
+            </a>
+          </li>
+          <li class="vrow" data-reveal style="--d:0.12s">
+            <a class="vrow-link" href="pages/contact.html" data-cursor="Inquire">
+              <span class="vrow-num">03</span>
+              <h3 class="vrow-name">FeedSlack</h3>
+              <span class="vrow-cat">Customer feedback</span>
+              <span class="vrow-go">Inquire <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+              <span class="vrow-more"><span class="vrow-more-inner"><span class="vrow-logo"><img src="assets/images/logo/feedslack.png" alt="FeedSlack logo" width="462" height="93" /></span><span class="vrow-desc">An advanced feedback system that helps online businesses refine every customer interaction.</span></span></span>
+            </a>
+          </li>
+          <li class="vrow" data-reveal style="--d:0.18s">
+            <a class="vrow-link" href="pages/contact.html" data-cursor="Inquire">
+              <span class="vrow-num">04</span>
+              <h3 class="vrow-name">AdverCal</h3>
+              <span class="vrow-cat">Marketing agency</span>
+              <span class="vrow-go">Inquire <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+              <span class="vrow-more"><span class="vrow-more-inner"><span class="vrow-logo"><img src="assets/images/logo/advercal.png" alt="AdverCal logo" width="478" height="111" /></span><span class="vrow-desc">Customized marketing strategies — with the rare option of working directly with executives.</span></span></span>
+            </a>
+          </li>
+        </ol>
       </div>
     </section>
 
@@ -152,7 +175,7 @@
         <div class="x-scrolly" data-x-track>
         <div class="x-pin">
         <div class="explainer" data-explainer data-step="4">
-          <div class="x-stage">
+          <div class="x-stage" data-cursor="Scroll">
             <div class="bg-grid" aria-hidden="true"></div>
             <svg class="x-svg" viewBox="0 0 600 420" role="img" aria-labelledby="x-svg-title x-svg-desc">
               <title id="x-svg-title">How CyruTech works</title>
@@ -499,7 +522,8 @@
       <div class="footer-word" aria-hidden="true" data-split="chars">CyruTech</div>
       <div class="footer-bottom">
         <span>&copy; <span data-year>2026</span> CyruTech Capital. All rights reserved.</span>
-        <span>La Jolla, San Diego</span>
+        <span class="ft-meta"><span>32.8328&deg; N, 117.2713&deg; W</span><span data-lj-time>La Jolla, San Diego</span></span>
+        <button class="to-top" type="button" data-to-top>Back to top <span aria-hidden="true">&uarr;</span></button>
       </div>
     </div>
   </footer>

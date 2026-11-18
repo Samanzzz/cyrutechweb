@@ -21,12 +21,19 @@
   <link rel="apple-touch-icon" href="../favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Inter+Tight:wght@400;500;600&amp;display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Inter+Tight:wght@200..800&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" />
   <link rel="stylesheet" href="../assets/css/site.css" />
-  <script>document.documentElement.classList.add("js");</script>
+  <script>document.documentElement.classList.add("js");try{if(!sessionStorage.getItem("cy-intro")&&!matchMedia("(prefers-reduced-motion: reduce)").matches){document.documentElement.classList.add("intro");sessionStorage.setItem("cy-intro","1");}}catch(e){}</script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
+  <div class="intro-curtain" aria-hidden="true">
+    <div class="intro-inner">
+      <img src="../assets/images/logo/Cy-logo.png" alt="" width="64" height="59" />
+      <span class="intro-name">CyruTech Capital</span>
+      <span class="intro-bar"><span></span></span>
+    </div>
+  </div>
   <header class="site-header">
     <div class="scroll-progress" aria-hidden="true"></div>
     <div class="wrap">
@@ -50,7 +57,7 @@
   </header>
   <main id="main">
     <section class="page-hero">
-      <div class="bg-grid" aria-hidden="true"></div>
+      <canvas class="topo" data-topo aria-hidden="true"></canvas>
       <div class="bg-glow" aria-hidden="true"></div>
       <div class="grain" aria-hidden="true"></div>
       <div class="wrap">
@@ -236,7 +243,8 @@
       <div class="footer-word" aria-hidden="true" data-split="chars">CyruTech</div>
       <div class="footer-bottom">
         <span>&copy; <span data-year>2026</span> CyruTech Capital. All rights reserved.</span>
-        <span>La Jolla, San Diego</span>
+        <span class="ft-meta"><span>32.8328&deg; N, 117.2713&deg; W</span><span data-lj-time>La Jolla, San Diego</span></span>
+        <button class="to-top" type="button" data-to-top>Back to top <span aria-hidden="true">&uarr;</span></button>
       </div>
     </div>
   </footer>
