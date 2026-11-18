@@ -841,3 +841,31 @@
     });
   });
 })();
+
+/* ---------- News strip: rotate the "Latest" headlines ---------- */
+(function () {
+  var list = document.querySelector("[data-newsbar]");
+  if (!list) return;
+  var items = list.querySelectorAll(".newsbar-item");
+  if (items.length < 2) return;
+  var i = 0, timer = null, paused = false;
+  function step() {
+    var cur = items[i];
+    i = (i + 1) % items.length;
+    var next = items[i];
+    cur.classList.remove("is-on");
+    cur.classList.add("is-out");
+    next.classList.remove("is-out");
+    next.classList.add("is-on");
+    setTimeout(function () { cur.classList.remove("is-out"); }, 650);
+  }
+  function start() { if (!timer && !paused && !document.hidden) timer = setInterval(step, 4500); }
+  function stop() { clearInterval(timer); timer = null; }
+  var bar = list.closest(".newsbar");
+  bar.addEventListener("mouseenter", function () { paused = true; stop(); });
+  bar.addEventListener("mouseleave", function () { paused = false; start(); });
+  bar.addEventListener("focusin", function () { paused = true; stop(); });
+  bar.addEventListener("focusout", function (e) { if (!bar.contains(e.relatedTarget)) { paused = false; start(); } });
+  document.addEventListener("visibilitychange", function () { document.hidden ? stop() : start(); });
+  start();
+})();

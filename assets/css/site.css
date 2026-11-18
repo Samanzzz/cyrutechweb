@@ -1416,3 +1416,69 @@ html.intro .hero, html.intro .page-hero { --intro-delay: 1.15s; }
 @media (max-width: 599px) {
   .vrow-more-inner { flex-direction: column; align-items: flex-start; gap: 14px; }
 }
+
+/* --- News strip: background wire + latest bar --- */
+.newswire {
+  position: absolute; inset: -10% -20%; z-index: -1; pointer-events: none;
+  display: flex; flex-direction: column; justify-content: center; gap: clamp(8px, 2vw, 28px);
+  transform: rotate(-6deg);
+  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, #000 20%, transparent 80%);
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, #000 20%, transparent 80%);
+  opacity: 0.9;
+}
+.nw-row { overflow: hidden; white-space: nowrap; }
+.nw-track { display: flex; width: max-content; align-items: center; }
+.nw-item {
+  font-size: clamp(3rem, 9vw, 8.5rem); font-weight: 700; letter-spacing: -0.04em; line-height: 1.05;
+  color: transparent; -webkit-text-stroke: 1px rgba(62, 224, 122, 0.24);
+  padding-inline: 0.35em;
+}
+.nw-row--1 .nw-item { font-family: var(--font-serif); font-style: italic; font-weight: 400; -webkit-text-stroke: 0; color: rgba(245, 243, 238, 0.06); }
+.nw-sep { color: rgba(62, 224, 122, 0.18); font-size: clamp(1rem, 2vw, 1.8rem); }
+@media (prefers-reduced-motion: no-preference) {
+  .nw-row--0 .nw-track { animation: marquee 90s linear infinite; }
+  .nw-row--1 .nw-track { animation: marquee 120s linear infinite reverse; }
+  .nw-row--2 .nw-track { animation: marquee 105s linear infinite; }
+}
+
+.newsbar {
+  position: relative; margin-top: clamp(40px, 5vw, 64px);
+  border-top: 1px solid var(--line-ink);
+  background: linear-gradient(90deg, rgba(29, 185, 84, 0.08), transparent 60%);
+}
+.hero { padding-bottom: 0; }
+.newsbar-inner { display: flex; align-items: center; gap: clamp(14px, 2vw, 24px); min-height: 56px; }
+.newsbar-label {
+  flex: none; display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--green-bright);
+}
+.newsbar-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--green-bright); box-shadow: 0 0 0 0 rgba(62, 224, 122, 0.6); }
+@media (prefers-reduced-motion: no-preference) {
+  .newsbar-dot { animation: nb-ping 2s ease-out infinite; }
+}
+@keyframes nb-ping { 70%, 100% { box-shadow: 0 0 0 8px rgba(62, 224, 122, 0); } }
+.newsbar-view { position: relative; flex: 1; min-width: 0; height: 56px; overflow: hidden; }
+.newsbar-list { list-style: none; margin: 0; padding: 0; }
+.newsbar-item {
+  position: absolute; inset: 0; display: flex; align-items: center; gap: 12px; min-width: 0;
+  opacity: 0; transform: translateY(100%); visibility: hidden;
+  transition: opacity .5s var(--ease, ease), transform .6s var(--ease, ease), visibility 0s .6s;
+}
+.newsbar-item.is-on { opacity: 1; transform: none; visibility: visible; transition-delay: 0s; }
+.newsbar-item.is-out { opacity: 0; transform: translateY(-100%); visibility: visible; }
+.newsbar-tag {
+  flex: none; font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--on-ink-muted); border: 1px solid var(--line-ink); border-radius: 999px; padding: 3px 9px;
+}
+.newsbar-item a {
+  color: var(--on-ink); text-decoration: none; font-size: 0.95rem; min-width: 0;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  background: linear-gradient(currentColor, currentColor) 0 100% / 0 1px no-repeat; transition: background-size .35s;
+}
+.newsbar-item a:hover, .newsbar-item a:focus-visible { background-size: 100% 1px; color: var(--green-bright); }
+/* No JS: show headlines as a horizontally scrollable row */
+html:not(.js) .newsbar-view { height: auto; overflow-x: auto; }
+html:not(.js) .newsbar-list { display: flex; gap: 32px; padding-block: 16px; }
+html:not(.js) .newsbar-item { position: static; opacity: 1; transform: none; visibility: visible; flex: none; }
+@media (max-width: 599px) { .newsbar-tag { display: none; } }
+@media print { .newswire, .newsbar { display: none; } }
