@@ -29,6 +29,7 @@
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header">
+    <div class="scroll-progress" aria-hidden="true"></div>
     <div class="wrap">
       <a class="brand" href="./" aria-label="CyruTech Capital — home">
         <img src="assets/images/logo/CyruTech-logo.png" alt="CyruTech" width="106" height="30" />
@@ -57,7 +58,7 @@
         <div class="hero-grid">
           <div class="hero-copy">
             <span class="eyebrow" data-reveal>Venture studio &middot; La Jolla, San Diego</span>
-            <h1 class="display" id="hero-title" data-reveal style="--d:.06s">We back and build the companies <span class="serif">shaping what&rsquo;s next.</span></h1>
+            <h1 class="display" id="hero-title" data-split>We back and build the companies <span class="serif">shaping what&rsquo;s next.</span></h1>
             <p class="lead" data-reveal style="--d:.14s">CyruTech Capital partners with founders from first spark to market leadership — with capital, engineering and go-to-market under one roof.</p>
             <div class="btn-row" data-reveal style="--d:.2s">
               <a class="btn" href="pages/appointment.html">Book a call <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
@@ -83,10 +84,10 @@
         </div>
         </div>
         <dl class="hero-stats" data-reveal style="--d:.25s">
-          <div><dt class="sr-only">Portfolio companies</dt><dd style="margin:0"><div class="stat-value">4</div><div class="stat-label">Portfolio ventures across software, data and marketing</div></dd></div>
-          <div><dt class="sr-only">Program length</dt><dd style="margin:0"><div class="stat-value">90 <span class="serif">days</span></div><div class="stat-label">Focused acceleration program</div></dd></div>
-          <div><dt class="sr-only">Cities</dt><dd style="margin:0"><div class="stat-value">5</div><div class="stat-label">Cities where we work with founders</div></dd></div>
-          <div><dt class="sr-only">Bootcamp tracks</dt><dd style="margin:0"><div class="stat-value">6</div><div class="stat-label">Bootcamp tracks for the next generation of builders</div></dd></div>
+          <div><dt class="sr-only">Portfolio companies</dt><dd style="margin:0"><div class="stat-value"><span data-count="4">4</span></div><div class="stat-label">Portfolio ventures across software, data and marketing</div></dd></div>
+          <div><dt class="sr-only">Program length</dt><dd style="margin:0"><div class="stat-value"><span data-count="90">90</span> <span class="serif">days</span></div><div class="stat-label">Focused acceleration program</div></dd></div>
+          <div><dt class="sr-only">Cities</dt><dd style="margin:0"><div class="stat-value"><span data-count="5">5</span></div><div class="stat-label">Cities where we work with founders</div></dd></div>
+          <div><dt class="sr-only">Bootcamp tracks</dt><dd style="margin:0"><div class="stat-value"><span data-count="6">6</span></div><div class="stat-label">Bootcamp tracks for the next generation of builders</div></dd></div>
         </dl>
       </div>
     </section>
@@ -142,7 +143,7 @@
           </div>
           <p class="lead" data-reveal style="--d:.1s">We work with companies at every stage — from a conceptual spark to an established product — in a focused three-month sprint where urgency meets opportunity.</p>
         </div>
-        <ol class="phases">
+        <ol class="phases" data-reveal>
           <li class="phase" data-reveal><span class="phase-when">Month one</span><h3>Refine</h3><p>Sharpen the product, the customer and the story. Cut what doesn&rsquo;t matter; double down on what does.</p></li>
           <li class="phase" data-reveal style="--d:.08s"><span class="phase-when">Month two</span><h3>Grow</h3><p>Put the product in front of users. Build the channels, partnerships and feedback loops that expand your base.</p></li>
           <li class="phase" data-reveal style="--d:.16s"><span class="phase-when">Month three</span><h3>Raise</h3><p>Turn traction into investment readiness — and leave positioned for sustainable growth, not just the next step.</p></li>
@@ -190,13 +191,13 @@
           <p class="lead" data-reveal style="--d:.1s">Practical, project-based courses for students and career-switchers who want to build — from shipping a first web app to leading an Agile team.</p>
           <div data-reveal style="--d:.15s"><a class="btn btn--dark" href="pages/education.html">Explore the bootcamp <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
         </div>
-        <ol class="courses" data-reveal style="--d:.1s">
-            <li class="course"><h3>Software Project Management</h3><p>Plan, organize and lead software projects with Agile and Scrum.</p></li>
-            <li class="course"><h3>AI &amp; Machine Learning Essentials</h3><p>Neural networks and machine learning, taught through real-world applications.</p></li>
-            <li class="course"><h3>Cybersecurity Basics</h3><p>Threats, encryption and how to protect personal and company data.</p></li>
-            <li class="course"><h3>Web Development</h3><p>Design and build a complete website with HTML, CSS and JavaScript.</p></li>
-            <li class="course"><h3>Data Science &amp; Analytics</h3><p>Analyze and visualize data for insight using Python and Excel.</p></li>
-            <li class="course"><h3>App Development</h3><p>Design, code and test a mobile app from first sketch to working build.</p></li>
+        <ol class="courses">
+            <li class="course" data-reveal style="--d:0.00s"><h3>Software Project Management</h3><p>Plan, organize and lead software projects with Agile and Scrum.</p></li>
+            <li class="course" data-reveal style="--d:0.06s"><h3>AI &amp; Machine Learning Essentials</h3><p>Neural networks and machine learning, taught through real-world applications.</p></li>
+            <li class="course" data-reveal style="--d:0.12s"><h3>Cybersecurity Basics</h3><p>Threats, encryption and how to protect personal and company data.</p></li>
+            <li class="course" data-reveal style="--d:0.18s"><h3>Web Development</h3><p>Design and build a complete website with HTML, CSS and JavaScript.</p></li>
+            <li class="course" data-reveal style="--d:0.24s"><h3>Data Science &amp; Analytics</h3><p>Analyze and visualize data for insight using Python and Excel.</p></li>
+            <li class="course" data-reveal style="--d:0.30s"><h3>App Development</h3><p>Design, code and test a mobile app from first sketch to working build.</p></li>
         </ol>
       </div>
     </section>
@@ -324,7 +325,7 @@
           </ul>
         </div>
       </div>
-      <div class="footer-word" aria-hidden="true">CyruTech</div>
+      <div class="footer-word" aria-hidden="true" data-reveal>CyruTech</div>
       <div class="footer-bottom">
         <span>&copy; <span data-year>2026</span> CyruTech Capital. All rights reserved.</span>
         <span>La Jolla, San Diego</span>

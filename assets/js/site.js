@@ -9,10 +9,18 @@
   var header = document.querySelector(".site-header");
   if (header) {
     var ticking = false;
+    var progress = header.querySelector(".scroll-progress");
     var updateHeader = function () {
       header.classList.toggle("is-scrolled", window.scrollY > 8);
+      if (progress) {
+        var max = document.documentElement.scrollHeight - window.innerHeight;
+        progress.style.transform = "scaleX(" + (max > 0 ? Math.min(1, window.scrollY / max) : 0) + ")";
+      }
       ticking = false;
     };
+    window.addEventListener("resize", function () {
+      if (!ticking) { ticking = true; window.requestAnimationFrame(updateHeader); }
+    });
     window.addEventListener("scroll", function () {
       if (!ticking) { ticking = true; window.requestAnimationFrame(updateHeader); }
     }, { passive: true });
@@ -63,6 +71,62 @@
       else if (!e.shiftKey && document.activeElement === lastEl) { e.preventDefault(); firstEl.focus(); }
       else if (items.indexOf(document.activeElement) === -1) { e.preventDefault(); firstEl.focus(); }
     });
+  }
+
+  /* ---------- Headline word split ---------- */
+  document.querySelectorAll("[data-split]").forEach(function (el) {
+    if (reduceMotion) return;
+    var i = 0;
+    var walk = function (node) {
+      Array.prototype.slice.call(node.childNodes).forEach(function (child) {
+        if (child.nodeType === 3) {
+          var parts = child.textContent.split(/(\s+)/);
+          if (parts.length === 1 && !parts[0].trim()) return;
+          var frag = document.createDocumentFragment();
+          parts.forEach(function (part) {
+            if (!part) return;
+            if (/^\s+$/.test(part)) { frag.appendChild(document.createTextNode(part)); return; }
+            var span = document.createElement("span");
+            span.className = "w";
+            span.style.setProperty("--i", i++);
+            span.textContent = part;
+            frag.appendChild(span);
+          });
+          node.replaceChild(frag, child);
+        } else if (child.nodeType === 1) {
+          walk(child);
+        }
+      });
+    };
+    walk(el);
+    /* Two frames so the hidden state paints before transitioning in. */
+    window.requestAnimationFrame(function () {
+      window.requestAnimationFrame(function () { el.classList.add("is-in"); });
+    });
+  });
+
+  /* ---------- Count-up numbers ---------- */
+  var counters = document.querySelectorAll("[data-count]");
+  if (counters.length && !reduceMotion && "IntersectionObserver" in window) {
+    var runCount = function (el) {
+      var target = parseInt(el.getAttribute("data-count"), 10);
+      var start = null;
+      var dur = 1400;
+      var step = function (ts) {
+        if (start === null) start = ts;
+        var t = Math.min(1, (ts - start) / dur);
+        var eased = 1 - Math.pow(1 - t, 4);
+        el.textContent = String(Math.round(target * eased));
+        if (t < 1) window.requestAnimationFrame(step);
+      };
+      window.requestAnimationFrame(step);
+    };
+    var co = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) { co.unobserve(entry.target); runCount(entry.target); }
+      });
+    }, { threshold: 0.6 });
+    counters.forEach(function (el) { el.textContent = "0"; co.observe(el); });
   }
 
   /* ---------- Reveal on scroll ---------- */
