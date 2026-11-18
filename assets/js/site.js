@@ -320,24 +320,21 @@
     });
   }
 
-  /* ---------- "How it works" explainer: step player ---------- */
+  /* ---------- "How it works" explainer: scroll-driven steps ---------- */
   document.querySelectorAll("[data-explainer]").forEach(function (ex) {
     var tabs = Array.prototype.slice.call(ex.querySelectorAll("[data-step-btn]"));
     var panels = Array.prototype.slice.call(ex.querySelectorAll("[data-step-panel]"));
-    var toggle = ex.querySelector("[data-explainer-toggle]");
-    if (!tabs.length) return;
-    var DUR = 5200;
-    var step = 1, elapsed = 0, last = null, raf = 0;
-    var visible = false, hovering = false, userPaused = reduceMotion;
+    var track = ex.closest("[data-x-track]");
+    if (!tabs.length || !track) return;
+    var pin = track.firstElementChild;
+    var STEPS = tabs.length;
+    var step = 0;
+    var hdr = document.querySelector(".site-header");
+    var headerH = function () { return hdr ? hdr.offsetHeight : 0; };
 
-    var paintBars = function () {
-      tabs.forEach(function (t, i) {
-        var bar = t.querySelector(".x-tab-bar span");
-        if (bar) bar.style.setProperty("--p", i + 1 === step ? Math.min(1, elapsed / DUR).toFixed(3) : "0");
-      });
-    };
-    var go = function (n, focus) {
-      step = n; elapsed = 0;
+    var go = function (n) {
+      if (n === step) return;
+      step = n;
       ex.setAttribute("data-step", String(n));
       tabs.forEach(function (t, i) {
         var on = i + 1 === n;
@@ -345,58 +342,49 @@
         t.setAttribute("tabindex", on ? "0" : "-1");
       });
       panels.forEach(function (p) { p.hidden = Number(p.getAttribute("data-step-panel")) !== n; });
-      if (focus) tabs[n - 1].focus();
-      paintBars();
     };
-    var playing = function () { return visible && !hovering && !userPaused; };
-    var loop = function (ts) {
+    var geometry = function () {
+      var r = track.getBoundingClientRect();
+      return { top: r.top, docTop: r.top + window.scrollY, total: track.offsetHeight - pin.offsetHeight };
+    };
+    var raf = 0;
+    var update = function () {
       raf = 0;
-      if (!playing()) { last = null; return; }
-      if (last !== null) elapsed += ts - last;
-      last = ts;
-      if (elapsed >= DUR) go((step % tabs.length) + 1);
-      paintBars();
-      raf = window.requestAnimationFrame(loop);
+      var g = geometry();
+      if (g.total <= 0) { go(STEPS); return; }
+      var p = Math.max(0, Math.min(0.9999, (headerH() - g.top) / g.total));
+      var n = Math.floor(p * STEPS) + 1;
+      var intra = p * STEPS - (n - 1);
+      go(n);
+      tabs.forEach(function (t, i) {
+        var bar = t.querySelector(".x-tab-bar span");
+        if (bar) bar.style.setProperty("--p", i + 1 < n ? "1" : i + 1 === n ? intra.toFixed(3) : "0");
+      });
     };
-    var kick = function () {
-      if (!raf && playing()) { last = null; raf = window.requestAnimationFrame(loop); }
-    };
+    var request = function () { if (!raf) raf = window.requestAnimationFrame(update); };
+    window.addEventListener("scroll", request, { passive: true });
+    window.addEventListener("resize", request);
 
+    /* Clicking or arrowing to a step scrolls to that point of the track. */
+    var scrollToStep = function (n) {
+      var g = geometry();
+      var f = (n - 1 + 0.15) / STEPS;
+      var y = g.docTop - headerH() + g.total * f;
+      window.scrollTo({ top: Math.round(y), behavior: reduceMotion ? "auto" : "smooth" });
+      go(n);
+    };
     tabs.forEach(function (t, i) {
-      t.addEventListener("click", function () { go(i + 1); kick(); });
+      t.addEventListener("click", function () { scrollToStep(i + 1); });
       t.addEventListener("keydown", function (e) {
         var n = null;
-        if (e.key === "ArrowRight" || e.key === "ArrowDown") n = (step % tabs.length) + 1;
-        else if (e.key === "ArrowLeft" || e.key === "ArrowUp") n = step === 1 ? tabs.length : step - 1;
+        if (e.key === "ArrowRight" || e.key === "ArrowDown") n = Math.min(STEPS, step + 1);
+        else if (e.key === "ArrowLeft" || e.key === "ArrowUp") n = Math.max(1, step - 1);
         else if (e.key === "Home") n = 1;
-        else if (e.key === "End") n = tabs.length;
-        if (n !== null) { e.preventDefault(); go(n, true); }
+        else if (e.key === "End") n = STEPS;
+        if (n !== null) { e.preventDefault(); scrollToStep(n); tabs[n - 1].focus({ preventScroll: true }); }
       });
     });
-
-    if (finePointer) {
-      ex.addEventListener("pointerenter", function () { hovering = true; });
-      ex.addEventListener("pointerleave", function () { hovering = false; kick(); });
-    }
-
-    if (toggle) {
-      toggle.setAttribute("aria-pressed", userPaused ? "true" : "false");
-      toggle.addEventListener("click", function () {
-        userPaused = !userPaused;
-        toggle.setAttribute("aria-pressed", userPaused ? "true" : "false");
-        kick();
-      });
-    }
-
-    if ("IntersectionObserver" in window) {
-      new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) { visible = entry.isIntersecting; kick(); });
-      }, { threshold: 0.35 }).observe(ex);
-    } else {
-      visible = true;
-    }
-    go(1);
-    kick();
+    update();
   });
 
   /* ---------- Footer year ---------- */
