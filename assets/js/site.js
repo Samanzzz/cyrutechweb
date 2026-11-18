@@ -173,7 +173,7 @@
 
   /* Pause SVG (SMIL) animations when motion is reduced */
   if (reduceMotion) {
-    document.querySelectorAll(".orbit svg").forEach(function (svgEl) {
+    document.querySelectorAll(".orbit svg, .x-svg").forEach(function (svgEl) {
       if (svgEl.pauseAnimations) svgEl.pauseAnimations();
     });
   }
@@ -319,6 +319,85 @@
       });
     });
   }
+
+  /* ---------- "How it works" explainer: step player ---------- */
+  document.querySelectorAll("[data-explainer]").forEach(function (ex) {
+    var tabs = Array.prototype.slice.call(ex.querySelectorAll("[data-step-btn]"));
+    var panels = Array.prototype.slice.call(ex.querySelectorAll("[data-step-panel]"));
+    var toggle = ex.querySelector("[data-explainer-toggle]");
+    if (!tabs.length) return;
+    var DUR = 5200;
+    var step = 1, elapsed = 0, last = null, raf = 0;
+    var visible = false, hovering = false, userPaused = reduceMotion;
+
+    var paintBars = function () {
+      tabs.forEach(function (t, i) {
+        var bar = t.querySelector(".x-tab-bar span");
+        if (bar) bar.style.setProperty("--p", i + 1 === step ? Math.min(1, elapsed / DUR).toFixed(3) : "0");
+      });
+    };
+    var go = function (n, focus) {
+      step = n; elapsed = 0;
+      ex.setAttribute("data-step", String(n));
+      tabs.forEach(function (t, i) {
+        var on = i + 1 === n;
+        t.setAttribute("aria-selected", on ? "true" : "false");
+        t.setAttribute("tabindex", on ? "0" : "-1");
+      });
+      panels.forEach(function (p) { p.hidden = Number(p.getAttribute("data-step-panel")) !== n; });
+      if (focus) tabs[n - 1].focus();
+      paintBars();
+    };
+    var playing = function () { return visible && !hovering && !userPaused; };
+    var loop = function (ts) {
+      raf = 0;
+      if (!playing()) { last = null; return; }
+      if (last !== null) elapsed += ts - last;
+      last = ts;
+      if (elapsed >= DUR) go((step % tabs.length) + 1);
+      paintBars();
+      raf = window.requestAnimationFrame(loop);
+    };
+    var kick = function () {
+      if (!raf && playing()) { last = null; raf = window.requestAnimationFrame(loop); }
+    };
+
+    tabs.forEach(function (t, i) {
+      t.addEventListener("click", function () { go(i + 1); kick(); });
+      t.addEventListener("keydown", function (e) {
+        var n = null;
+        if (e.key === "ArrowRight" || e.key === "ArrowDown") n = (step % tabs.length) + 1;
+        else if (e.key === "ArrowLeft" || e.key === "ArrowUp") n = step === 1 ? tabs.length : step - 1;
+        else if (e.key === "Home") n = 1;
+        else if (e.key === "End") n = tabs.length;
+        if (n !== null) { e.preventDefault(); go(n, true); }
+      });
+    });
+
+    if (finePointer) {
+      ex.addEventListener("pointerenter", function () { hovering = true; });
+      ex.addEventListener("pointerleave", function () { hovering = false; kick(); });
+    }
+
+    if (toggle) {
+      toggle.setAttribute("aria-pressed", userPaused ? "true" : "false");
+      toggle.addEventListener("click", function () {
+        userPaused = !userPaused;
+        toggle.setAttribute("aria-pressed", userPaused ? "true" : "false");
+        kick();
+      });
+    }
+
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) { visible = entry.isIntersecting; kick(); });
+      }, { threshold: 0.35 }).observe(ex);
+    } else {
+      visible = true;
+    }
+    go(1);
+    kick();
+  });
 
   /* ---------- Footer year ---------- */
   document.querySelectorAll("[data-year]").forEach(function (el) {
