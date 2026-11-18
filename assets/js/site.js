@@ -73,37 +73,52 @@
     });
   }
 
-  /* ---------- Headline word split ---------- */
-  document.querySelectorAll("[data-split]").forEach(function (el) {
-    if (reduceMotion) return;
-    var i = 0;
-    var walk = function (node) {
-      Array.prototype.slice.call(node.childNodes).forEach(function (child) {
-        if (child.nodeType === 3) {
-          var parts = child.textContent.split(/(\s+)/);
-          if (parts.length === 1 && !parts[0].trim()) return;
-          var frag = document.createDocumentFragment();
-          parts.forEach(function (part) {
-            if (!part) return;
-            if (/^\s+$/.test(part)) { frag.appendChild(document.createTextNode(part)); return; }
-            var span = document.createElement("span");
-            span.className = "w";
-            span.style.setProperty("--i", i++);
-            span.textContent = part;
-            frag.appendChild(span);
-          });
-          node.replaceChild(frag, child);
-        } else if (child.nodeType === 1) {
-          walk(child);
-        }
-      });
-    };
-    walk(el);
-    /* Two frames so the hidden state paints before transitioning in. */
-    window.requestAnimationFrame(function () {
-      window.requestAnimationFrame(function () { el.classList.add("is-in"); });
+  /* ---------- Text split: words (default) or letters ---------- */
+  var splitEls = document.querySelectorAll("[data-split]");
+  if (reduceMotion) splitEls.forEach(function (el) { el.classList.add("is-in"); });
+  if (splitEls.length && !reduceMotion) {
+    splitEls.forEach(function (el) {
+      var chars = el.getAttribute("data-split") === "chars";
+      var i = 0;
+      var walk = function (node) {
+        Array.prototype.slice.call(node.childNodes).forEach(function (child) {
+          if (child.nodeType === 3) {
+            var parts = chars ? Array.from(child.textContent) : child.textContent.split(/(\s+)/);
+            if (!child.textContent.trim()) return;
+            var frag = document.createDocumentFragment();
+            parts.forEach(function (part) {
+              if (!part) return;
+              if (/^\s+$/.test(part)) { frag.appendChild(document.createTextNode(part)); return; }
+              var span = document.createElement("span");
+              span.className = chars ? "ch" : "w";
+              span.style.setProperty("--i", i++);
+              span.textContent = part;
+              frag.appendChild(span);
+            });
+            node.replaceChild(frag, child);
+          } else if (child.nodeType === 1) {
+            walk(child);
+          }
+        });
+      };
+      walk(el);
     });
-  });
+    var showSplit = function (el) { el.classList.add("is-in"); };
+    if ("IntersectionObserver" in window) {
+      var so = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) { so.unobserve(entry.target); showSplit(entry.target); }
+        });
+      }, { rootMargin: "0px 0px -6% 0px", threshold: 0.15 });
+      /* Two frames so the hidden state paints before transitioning in. */
+      window.requestAnimationFrame(function () {
+        window.requestAnimationFrame(function () { splitEls.forEach(function (el) { so.observe(el); }); });
+      });
+      window.addEventListener("beforeprint", function () { splitEls.forEach(showSplit); });
+    } else {
+      splitEls.forEach(showSplit);
+    }
+  }
 
   /* ---------- Count-up numbers ---------- */
   var counters = document.querySelectorAll("[data-count]");
@@ -149,6 +164,160 @@
         revealEls.forEach(function (el) { el.classList.add("is-in"); });
       });
     }
+  }
+
+  /* ==========================================================================
+     Detailed motion
+     ========================================================================== */
+  var finePointer = window.matchMedia && window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+
+  /* Pause SVG (SMIL) animations when motion is reduced */
+  if (reduceMotion) {
+    document.querySelectorAll(".orbit svg").forEach(function (svgEl) {
+      if (svgEl.pauseAnimations) svgEl.pauseAnimations();
+    });
+  }
+
+  /* Eyebrow labels decode from scrambled letters */
+  var GLYPHS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+  var scramble = function (el) {
+    if (el.children.length || el.dataset.scrambled) return;
+    el.dataset.scrambled = "1";
+    var final = el.textContent;
+    var frames = 22;
+    var frame = 0;
+    el.classList.add("is-scrambling");
+    var tick = function () {
+      frame++;
+      var reveal = Math.floor((frame / frames) * final.length);
+      var out = "";
+      for (var k = 0; k < final.length; k++) {
+        var ch = final.charAt(k);
+        out += (k < reveal || /[\s—·.,&]/.test(ch)) ? ch : GLYPHS.charAt(Math.floor(Math.random() * GLYPHS.length));
+      }
+      el.textContent = out;
+      if (frame < frames) window.setTimeout(function () { window.requestAnimationFrame(tick); }, 28);
+      else { el.textContent = final; el.classList.remove("is-scrambling"); }
+    };
+    tick();
+  };
+  if (!reduceMotion && "IntersectionObserver" in window) {
+    var eo = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) { eo.unobserve(entry.target); window.setTimeout(function () { scramble(entry.target); }, 120); }
+      });
+    }, { threshold: 0.6 });
+    document.querySelectorAll(".eyebrow").forEach(function (el) { eo.observe(el); });
+  }
+
+  /* Hero: content drifts out on scroll (all viewports) */
+  var hero = document.querySelector(".hero");
+  var orbitEl = document.querySelector(".orbit");
+  if (hero && !reduceMotion) {
+    var heroTick = false;
+    var heroScroll = function () {
+      var h = hero.offsetHeight || 1;
+      var prog = Math.max(0, Math.min(1, window.scrollY / h));
+      hero.style.setProperty("--hp", prog.toFixed(3));
+      if (orbitEl) orbitEl.style.setProperty("--hp", prog.toFixed(3));
+      heroTick = false;
+    };
+    window.addEventListener("scroll", function () {
+      if (!heroTick) { heroTick = true; window.requestAnimationFrame(heroScroll); }
+    }, { passive: true });
+    heroScroll();
+  }
+
+  if (finePointer && !reduceMotion) {
+    /* Hero: cursor spotlight + orbit parallax */
+    if (hero) {
+      var hx = 0, hy = 0, heroRaf = 0;
+      var heroMove = function () {
+        heroRaf = 0;
+        var r = hero.getBoundingClientRect();
+        hero.style.setProperty("--sx", (hx - r.left) + "px");
+        hero.style.setProperty("--sy", (hy - r.top) + "px");
+        if (orbitEl) {
+          orbitEl.style.setProperty("--mx", (((hx - r.left) / r.width) * 2 - 1).toFixed(3));
+          orbitEl.style.setProperty("--my", (((hy - r.top) / r.height) * 2 - 1).toFixed(3));
+        }
+      };
+      hero.addEventListener("pointermove", function (e) {
+        hx = e.clientX; hy = e.clientY;
+        hero.classList.add("is-pointer");
+        if (!heroRaf) heroRaf = window.requestAnimationFrame(heroMove);
+      });
+      hero.addEventListener("pointerleave", function () {
+        hero.classList.remove("is-pointer");
+        if (orbitEl) { orbitEl.style.setProperty("--mx", "0"); orbitEl.style.setProperty("--my", "0"); }
+      });
+    }
+
+    /* Sliding highlight behind hovered nav links */
+    var navEl = document.getElementById("site-nav");
+    if (navEl) {
+      var pill = document.createElement("span");
+      pill.className = "nav-pill";
+      pill.setAttribute("aria-hidden", "true");
+      navEl.appendChild(pill);
+      navEl.classList.add("has-pill");
+      navEl.querySelectorAll("a:not(.nav-mobile-cta)").forEach(function (a) {
+        a.addEventListener("pointerenter", function () {
+          pill.style.width = a.offsetWidth + "px";
+          pill.style.transform = "translateX(" + a.offsetLeft + "px)";
+          pill.style.opacity = "1";
+        });
+      });
+      navEl.addEventListener("pointerleave", function () { pill.style.opacity = "0"; });
+    }
+
+    /* Cursor spotlight on cards */
+    document.querySelectorAll(".venture, .benefit, .course-card, .quote, .feature, .member").forEach(function (card) {
+      card.classList.add("spot");
+      card.addEventListener("pointermove", function (e) {
+        var r = card.getBoundingClientRect();
+        card.style.setProperty("--x", (e.clientX - r.left) + "px");
+        card.style.setProperty("--y", (e.clientY - r.top) + "px");
+      });
+    });
+
+    /* 3D tilt */
+    document.querySelectorAll(".venture, .course-card").forEach(function (card) {
+      card.classList.add("tilt");
+      var raf = 0, px = 0, py = 0;
+      var apply = function () {
+        raf = 0;
+        var r = card.getBoundingClientRect();
+        var nx = (px - r.left) / r.width - 0.5;
+        var ny = (py - r.top) / r.height - 0.5;
+        card.style.transform = "perspective(1000px) rotateX(" + (-ny * 6).toFixed(2) + "deg) rotateY(" + (nx * 8).toFixed(2) + "deg) translateY(-4px)";
+      };
+      card.addEventListener("pointerenter", function () { card.style.transition = "transform 0.2s ease-out, box-shadow 0.4s, border-color 0.3s"; });
+      card.addEventListener("pointermove", function (e) {
+        px = e.clientX; py = e.clientY;
+        if (!raf) raf = window.requestAnimationFrame(apply);
+      });
+      card.addEventListener("pointerleave", function () {
+        if (raf) { window.cancelAnimationFrame(raf); raf = 0; }
+        card.style.transition = "transform 0.8s cubic-bezier(0.2, 0.7, 0.1, 1), box-shadow 0.4s, border-color 0.3s";
+        card.style.transform = "";
+      });
+    });
+
+    /* Magnetic primary buttons */
+    document.querySelectorAll(".hero .btn, .page-hero .btn, .cta-band .btn, .header-cta .btn").forEach(function (b) {
+      b.addEventListener("pointermove", function (e) {
+        var r = b.getBoundingClientRect();
+        var dx = e.clientX - (r.left + r.width / 2);
+        var dy = e.clientY - (r.top + r.height / 2);
+        b.style.transition = "transform 0.15s ease-out, background-color 0.25s";
+        b.style.transform = "translate(" + (dx * 0.18).toFixed(1) + "px," + (dy * 0.3).toFixed(1) + "px)";
+      });
+      b.addEventListener("pointerleave", function () {
+        b.style.transition = "transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.25s";
+        b.style.transform = "";
+      });
+    });
   }
 
   /* ---------- Footer year ---------- */
